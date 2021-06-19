@@ -13,7 +13,7 @@ func get_input() -> void:
 		velocity.y += 1
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 
 	velocity = velocity.normalized() * speed
@@ -23,6 +23,6 @@ func _process(_delta: float) -> void:
 	self.look_at(get_global_mouse_position())
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	get_input()
 	velocity = move_and_slide(velocity)

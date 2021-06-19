@@ -42,8 +42,8 @@ var is_crouching: bool
 
 var velocity: Vector2 = Vector2.ZERO
 var crouch_speed: float = 50.0
-var walk_speed: float = 100.0
-var run_speed: float = 200.0
+var walk_speed: float = 200.0
+var run_speed: float = 300.0
 #var friction: float = 0.2
 
 var stamina: float = 100.0
@@ -54,11 +54,11 @@ func _ready():
 	_state = IDLE
 
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 
-func state_machine(delta):
+func state_machine(_delta):
 	match _state:
 		IDLE:
 			if velocity:
@@ -138,7 +138,7 @@ func _unhandled_key_input(event):
 		is_crouching = false
 
 
-func get_motion_input(delta):
+func get_motion_input(_delta):
 #Inputs Variables
 	## -------------------------------------------
 	up_input = Input.is_action_pressed("ui_up")
@@ -162,7 +162,6 @@ func get_motion_input(delta):
 	if right_input:
 		velocity += Vector2(1, 0)
 
-	
 	if is_running:
 		velocity = velocity.normalized() * run_speed
 	elif is_crouching:
@@ -173,7 +172,7 @@ func get_motion_input(delta):
 
 func stamina_decrease():
 	stamina -= 1
-	
+
 
 func stamina_increase():
 	stamina += 1

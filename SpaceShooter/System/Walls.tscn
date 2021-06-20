@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 180, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 110, 10 )
+
+[node name="Walls" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="TopCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 160, -10 )
+shape = SubResource( 1 )
+
+[node name="BottomCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 160, 190 )
+shape = SubResource( 1 )
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2( -9.73514, 90 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 330, 90 )
+rotation = 1.5708
+shape = SubResource( 2 )

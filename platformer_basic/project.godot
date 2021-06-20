@@ -24,6 +24,10 @@ config/name="Platformer Basic"
 run/main_scene="res://source/Levels/LevelTemplate.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/dpi/allow_hidpi=true
+
 [input]
 
 move_left={
